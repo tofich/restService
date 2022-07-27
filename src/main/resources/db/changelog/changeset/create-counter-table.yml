@@ -1,0 +1,24 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-counter-table
+      author: Anton
+      changes:
+        - createTable:
+            tableName: counter
+            columns:
+              - column:
+                  name: id
+                  type: varchar(10)
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(200)
+                  constraints:
+                    nullable: true
+              - column:
+                  name: count
+                  type: bigint(20)
+                  constraints:
+                    nullable: true
