@@ -1,7 +1,6 @@
 package aa.trusov.testApp.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;

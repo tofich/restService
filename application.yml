@@ -13,6 +13,6 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/testappdb?autoReconnect=true&allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC
     username: testappdb
-    password: #secretpassword
+    password: testappdb
   liquibase:
     enabled: true

@@ -1,0 +1,87 @@
+swagger: '2.0'
+info:
+  description: Документация API тестового задания
+  version: 1.0.0
+  title: API Тестового задания
+  contact:
+    email: trusov.aa@mail.ru
+
+host: localhost:8080
+basePath: /
+schemes:
+  - http
+
+tags:
+  - name: MainController
+    description: Основной контроллер тестового задания
+
+paths:
+  /getCount:
+    get:
+      tags:
+        - MainController
+      summary: получение значения счетчика
+      operationId: getCountGET
+      description: |
+        Принимает id счетчика (строка до 10 символов), возвращает значение этого счетчика.
+      produces:
+        - int32
+      parameters:
+        - in: query
+          name: counterId
+          description: id счетчика
+          required: false
+          type: string
+          minLength: 0
+          maxLength: 10
+      responses:
+        200:
+          description: OK
+          schema:
+            type: integer
+        404:
+          description: Not Found
+  /incrementCount:
+    post:
+      tags:
+        - MainController
+      summary: Увеличение значения счетчика по id
+      operationId: incrementCountUsingPOST
+      description: Adds an item to the system
+      consumes:
+        - application/json
+      produces:
+        - "*/*"
+      parameters:
+        - in: body
+          name: request
+          description: request
+          schema:
+            $ref: '#/definitions/IncrementCountRequest'
+      responses:
+        200:
+          description: OK
+          schema:
+            type: object
+        201:
+          description: Created
+        400:
+          description: Bad Request
+        404:
+          description: Not Found
+definitions:
+  IncrementCountRequest:
+    type: object
+    required:
+      - incrementCount
+    properties:
+      counterId:
+        type: string
+        minLength: 0
+        maxLength: 10
+      incrementCount:
+        type: integer
+        format: int64
+        minimum: 0
+        exclusiveMinimum: false
+    title: IncrementCountRequest

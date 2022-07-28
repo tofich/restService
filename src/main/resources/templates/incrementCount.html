@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <meta name="ctx" th:content="${#httpServletRequest.getContextPath()}"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
+<body>
+<div class="container">
+    <br>
+    <div class="row justify-content-center">
+        <div class="col-8">
+            <h4>
+                <span th:text="'Изменение значения счетчика с использованием rest-point /incrementCount'" th:remove="tag"/>
+            </h4>
+            <form action="#" th:action="@{/client/incrementCount}" method="get">
+                <div class="row">
+                    <div class="row justify-content-center">
+                        <div class="mb-2">
+                            <label>Введите CounterId:</label>
+                            <input type="text" class="form-control" name="counterId">
+                        </div>
+                        <div class="mb-2">
+                            <label>Введите incrementCount:</label>
+                            <input type="text" class="form-control" name="incrementCount">
+                        </div>
+                        <div class="col-3">
+                            <button type="submit" class="btn btn-primary">Изменить значение счетчика</button>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+            </form>
+            <br>
+            <span th:text="'Новое значение выбранного счетчика = ' + ${count}"/>
+            <br>
+            <a href="/client/getCount">Перейти на страницу просмотра значения счетчика</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
